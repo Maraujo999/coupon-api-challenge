@@ -1,0 +1,21 @@
+services:
+  coupon-api:
+    build: .
+    image: coupon-api:1.0.0
+    ports:
+      - "127.0.0.1:${COUPON_PORT:-8080}:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: demo
+      COUPON_SECURITY_USERNAME: "${COUPON_SECURITY_USERNAME:-admin}"
+      COUPON_SECURITY_PASSWORD: "${COUPON_SECURITY_PASSWORD:?Configure credentials with python scripts/demo.py configure}"
+      LOGGING_STRUCTURED_FORMAT_CONSOLE: ecs
+      JAVA_TOOL_OPTIONS: "-XX:MaxRAMPercentage=70.0"
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 512m
+    stop_grace_period: 30s

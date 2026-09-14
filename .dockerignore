@@ -1,0 +1,10 @@
+.git
+.github
+target
+tmp
+docs
+.env
+.env.*
+*.pem
+*.key
+*.log

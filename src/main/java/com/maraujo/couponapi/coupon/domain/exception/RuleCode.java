@@ -1,0 +1,11 @@
+package com.maraujo.couponapi.coupon.domain.exception;
+
+public enum RuleCode {
+  INVALID_COUPON_CODE,
+  INVALID_DISCOUNT_VALUE,
+  INVALID_COUPON_DESCRIPTION,
+  INVALID_EXPIRATION_DATE,
+  EXPIRATION_IN_PAST,
+  COUPON_ALREADY_DELETED,
+  INVALID_COUPON_STATE
+}
